@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import pl.pajco.model.UserDTO;
-import pl.pajco.service.RegistrationService;
+import pl.pajco.service.RegisterService;
 import pl.pajco.validation.ValidationGroupRegisterNewUser;
 
 @Controller
 @RequestMapping("/register")
 public class RegisterController {
 
-    private RegistrationService registrationService;
+    private RegisterService registerService;
 
     @Autowired
-    private RegisterController(RegistrationService registrationService) {
-        this.registrationService = registrationService;
+    private RegisterController(RegisterService registerService) {
+        this.registerService = registerService;
     }
 
     @GetMapping("")
@@ -36,7 +36,7 @@ public class RegisterController {
         if(bindingResult.hasErrors()) {
             return "register";
         }
-        registrationService.registerUser(userDTO);
+        registerService.registerUser(userDTO);
         return "redirect:/login";
     }
 

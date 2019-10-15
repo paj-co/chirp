@@ -6,22 +6,22 @@ import pl.pajco.service.RegisterService;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-public class UniqueEmailValidator implements ConstraintValidator<UniqueEmail, String> {
+public class UniqueNickValidator implements ConstraintValidator<UniqueNick, String> {
 
     private RegisterService registerService;
 
     @Autowired
-    private UniqueEmailValidator(RegisterService registerService) {
+    public UniqueNickValidator(RegisterService registerService) {
         this.registerService = registerService;
     }
 
     @Override
-    public boolean isValid(String email, ConstraintValidatorContext constraintValidatorContext) {
-        return !registerService.checkIfEmailInDB(email);
+    public boolean isValid(String nick, ConstraintValidatorContext constraintValidatorContext) {
+        return !registerService.checkIfNickInDB(nick);
     }
 
     @Override
-    public void initialize(UniqueEmail constraintAnnotation) {
+    public void initialize(UniqueNick constraintAnnotation) {
 
     }
 }

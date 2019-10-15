@@ -7,12 +7,12 @@ import pl.pajco.model.UserDTO;
 import pl.pajco.repository.UserRepository;
 
 @Service
-public class RegistrationService {
+public class RegisterService {
 
     private UserRepository userRepository;
 
     @Autowired
-    private RegistrationService(UserRepository userRepository) {
+    private RegisterService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -21,6 +21,10 @@ public class RegistrationService {
         return user != null;
     }
 
+    public boolean checkIfNickInDB(String nick) {
+        User user = userRepository.findUserByNick(nick);
+        return user != null;
+    }
 
     public void registerUser(UserDTO userDTO) {
         userRepository.save(userDTOTransferToUser(userDTO));
