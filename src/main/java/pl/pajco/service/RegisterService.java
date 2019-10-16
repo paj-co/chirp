@@ -10,10 +10,12 @@ import pl.pajco.repository.UserRepository;
 public class RegisterService {
 
     private UserRepository userRepository;
+    private UserService userService;
 
     @Autowired
-    private RegisterService(UserRepository userRepository) {
+    private RegisterService(UserRepository userRepository, UserService userService) {
         this.userRepository = userRepository;
+        this.userService = userService;
     }
 
     public boolean checkIfEmailInDB(String email) {
@@ -27,7 +29,7 @@ public class RegisterService {
     }
 
     public void registerUser(UserDTO userDTO) {
-        userRepository.save(userDTOTransferToUser(userDTO));
+        userService.saveUser(userDTOTransferToUser(userDTO));
     }
 
     public User userDTOTransferToUser(UserDTO userDTO) {
