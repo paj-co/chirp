@@ -1,0 +1,27 @@
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+#left-panel{
+    width: 20%;
+    background-color: orange;
+    min-width: 100px;
+}
+#main-panel{
+    width: 60%;
+    background-color: lightgreen;
+    min-width: 200px;
+}
+#right-panel{
+    width: 20%;
+    background-color: lightgray;
+    min-width: 100px;
+}
+#chirp-logo{
+    color: darkblue;
+    font-size: 30px;
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+}

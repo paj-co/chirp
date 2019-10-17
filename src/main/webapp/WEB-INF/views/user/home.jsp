@@ -4,32 +4,45 @@
 <html>
 <head>
     <title>Chirp | Dashboard</title>
-    <style>
-        .inlineBlock{
-            display: inline-block;
-        }
-    </style>
+    <link href="<c:url value="/css/style.css" />" rel="stylesheet" />
 </head>
 <body>
 
-    <div id="top-panel">
-        Chirp | Top pannel | <%--TODO display user name--%>
-
-        <sec:authorize access="isAuthenticated()" >
-            <span>
-                <sec:authentication property="principal.user.nick" />
+    <div class="flex">
+        <div id="left-panel">
+            <span id="chirp-logo">
+                <a href="<c:url value="/" />">Chirp</a>
             </span>
-        </sec:authorize>
 
-        <form action="<c:url value="/logout" />" method="post">
-            <input type="submit" value="Logout" />
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-        </form>
+            <sec:authorize access="isAuthenticated()" >
+                <span>
+                    @<sec:authentication property="principal.user.nick" />
+                </span>
+            </sec:authorize>
 
+            <p>
+                Left Sidebar
+            </p>
+            <p>Profile</p>
+            <p>Messages</p>
+            <p>Settings</p>
+
+            <form action="<c:url value="/logout" />" method="post">
+                <input type="submit" value="Logout" />
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+            </form>
+        </div>
+        <div id="main-panel">
+            <div>
+                <p>
+                    Main Sidebar
+                </p>
+            </div>
+        </div>
+        <div id="right-panel">
+            <p>Right Sidebar</p>
+        </div>
     </div>
-    <div id="left-panel" class="inlineBlock">Left Sidebar</div>
-    <div id="main-panel" class="inlineBlock">Main Sidebar</div>
-    <div id="right-panel" class="inlineBlock">Right Sidebar</div>
 
 </body>
 </html>
