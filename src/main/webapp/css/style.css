@@ -7,15 +7,21 @@
     background-color: orange;
     min-width: 100px;
 }
+#left-panel-inside{
+    margin: 10px 0 0 10px;
+}
 #main-panel{
     width: 60%;
-    background-color: lightgreen;
+    background-color: white;
     min-width: 200px;
 }
 #right-panel{
     width: 20%;
     background-color: lightgray;
     min-width: 100px;
+}
+#right-panel-inside{
+    margin: 10px 0 0 10px;
 }
 #chirp-logo{
     color: darkblue;
@@ -25,3 +31,54 @@
 a {
     text-decoration: none;
 }
+.chirpTitle{
+    font-weight: bold;
+}
+.chirpTitleGray{
+    color: #505050;
+}
+.chirpFeed {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.chirp{
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
+}
+.nick{
+    font-weight: bold;
+    font-style: italic;
+}
+.nick:hover{
+    color: dodgerblue;
+    cursor: pointer;
+}
+#left-panel-menu{
+    margin: 20px;
+}
+#left-panel-menu ul{
+    padding-left: 0;
+}
+#left-panel-menu li{
+    list-style: none;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+#left-panel-menu li:hover{
+    color: dodgerblue;
+    cursor: pointer;
+}
+.logoutButton{
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-family: unset;
+    font-size: 1em;
+    font-weight: bold;
+}
+.logoutButton:hover{
+    color: dodgerblue;
+    cursor: pointer;
+}
+

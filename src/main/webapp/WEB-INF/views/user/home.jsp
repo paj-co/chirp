@@ -9,38 +9,59 @@
 <body>
 
     <div class="flex">
+
         <div id="left-panel">
-            <span id="chirp-logo">
-                <a href="<c:url value="/" />">Chirp</a>
-            </span>
+            <div id="left-panel-inside">
 
-            <sec:authorize access="isAuthenticated()" >
-                <span>
-                    @<sec:authentication property="principal.user.nick" />
+                <span id="chirp-logo">
+                    <a href="<c:url value="/" />">Chirp</a>
                 </span>
-            </sec:authorize>
 
-            <p>
-                Left Sidebar
-            </p>
-            <p>Profile</p>
-            <p>Messages</p>
-            <p>Settings</p>
+                <sec:authorize access="isAuthenticated()" >
+                    <span class="nick">
+                        @<sec:authentication property="principal.user.nick" />
+                    </span>
+                </sec:authorize>
 
-            <form action="<c:url value="/logout" />" method="post">
-                <input type="submit" value="Logout" />
-                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-            </form>
+                <div id="left-panel-menu">
+                    <ul>
+                        <li>Home</li>
+                        <li>Profile</li>
+                        <li>Messages</li>
+                        <li>Settings</li>
+                        <li>
+                            <form action="<c:url value="/logout" />" method="post">
+                                <input class="logoutButton" type="submit" value="Logout" />
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
+
         <div id="main-panel">
-            <div>
-                <p>
-                    Main Sidebar
-                </p>
+            <div class="chirpFeed">
+                <c:forEach items="${allChirps}" var="chirp" >
+                    <div class="chirp">
+                        <p>
+                            <span class="chirpTitle">${chirp.user.firstName} ${chirp.user.lastName}</span>
+                            <span class="chirpTitleGray">@${chirp.user.nick}</span>
+                            <span class="chirpTitleGray">${chirp.created}</span>
+                        </p>
+                        <p>
+                            ${chirp.text}
+                        </p>
+                        <hr>
+                    </div>
+                </c:forEach>
             </div>
         </div>
         <div id="right-panel">
-            <p>Right Sidebar</p>
+            <div id="right-panel-inside">
+                <p>Right Sidebar</p>
+            </div>
         </div>
     </div>
 
