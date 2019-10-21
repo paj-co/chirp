@@ -1,6 +1,7 @@
 package pl.pajco.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -24,6 +25,7 @@ public @Data class User {
     @Column(length = 50, unique = true, nullable = false)
     private String nick;
 
+    @JsonIgnore
     @Column(length = 60)
     private String password;
 
@@ -36,6 +38,7 @@ public @Data class User {
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private List<Chirp> chirps;
 
