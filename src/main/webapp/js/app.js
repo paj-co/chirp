@@ -1,10 +1,12 @@
 $(document).ready(function () {
 
     var chirpFeed = $('#chirpFeed');
+    var newChirpText = $('#new-chirp-text');
 
     function getAllChirps() {
         $.ajax({
-            url: "http://localhost:8080/chirp/rest/chirps/",
+            // url: "http://localhost:8080/chirp/rest/chirps/",
+            url: "rest/chirps/",
             type: "GET",
             dataType: "json"
         }).done(function (result) {
@@ -34,9 +36,35 @@ $(document).ready(function () {
                 chirpFeed.append(chirpDiv);
             })
         }).fail(function (xhr, status, err) {
+            alert('Problem loading chirps')
         }).always(function (xhr, status) {
         });
     }
+
+    $('#new-chirp-submit').on('click', function () {
+        var chirp = {
+            user: null,
+            text: newChirpText.val(),
+            created: null
+        };
+        $.ajax({
+            // url: "http://localhost:8080/chirp/rest/chirps/",
+            url: "rest/chirps/",
+            type: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify(chirp),
+            dataType: "json"
+        }).done(function (result) {
+            alert('It worked!');
+        }).fail(function (xhr, status, err) {
+            alert('There is problem with adding your chirp!')
+        }).always(function (xhr, status) {
+        });
+    });
+
 
     getAllChirps();
 

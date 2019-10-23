@@ -44,10 +44,19 @@
     </div>
 
     <div id="main-panel">
+
         <div id="chirpFeed">
+
+            <form id="chirp-form">
+                <textarea id="new-chirp-text" type="text" name="chirp" placeholder="What's happening?" ></textarea>
+                <input id="new-chirp-submit" type="button" value="Chirp">
+            </form>
+
+            <%--jQuery AJAX chirps--%>
 
         </div>
     </div>
+
     <div id="right-panel">
         <div id="right-panel-inside">
             <p>Right Sidebar</p>

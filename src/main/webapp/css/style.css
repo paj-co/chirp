@@ -2,48 +2,14 @@
     display: flex;
     flex-wrap: wrap;
 }
+/*--- Left panel on main site ---*/
+#left-panel-inside{
+    margin: 10px 0 0 10px;
+}
 #left-panel{
     width: 20%;
     background-color: orange;
     min-width: 100px;
-}
-#left-panel-inside{
-    margin: 10px 0 0 10px;
-}
-#main-panel{
-    width: 60%;
-    background-color: white;
-    min-width: 200px;
-}
-#right-panel{
-    width: 20%;
-    background-color: lightgray;
-    min-width: 100px;
-}
-#right-panel-inside{
-    margin: 10px 0 0 10px;
-}
-#chirp-logo{
-    color: darkblue;
-    font-size: 30px;
-    font-weight: bold;
-}
-a {
-    text-decoration: none;
-}
-.chirpTitle{
-    font-weight: bold;
-}
-.chirpTitleGray{
-    color: #505050;
-}
-#chirpFeed {
-    margin-left: 15px;
-    margin-right: 15px;
-}
-.chirp{
-    border-radius: 5px;
-    padding: 0 5px 0 5px;
 }
 .nick{
     font-weight: bold;
@@ -80,5 +46,52 @@ a {
 .logoutButton:hover{
     color: dodgerblue;
     cursor: pointer;
+}
+/*--- Right panel on main site ---*/
+#right-panel{
+    width: 20%;
+    background-color: lightgray;
+    min-width: 100px;
+}
+#right-panel-inside{
+    margin: 10px 0 0 10px;
+}
+#chirp-logo{
+    color: darkblue;
+    font-size: 30px;
+    font-weight: bold;
+}
+a {
+    text-decoration: none;
+}
+/*--- Main panel on main site ---*/
+#main-panel{
+    width: 60%;
+    background-color: white;
+    min-width: 200px;
+}
+.chirpTitle{
+    font-weight: bold;
+}
+.chirpTitleGray{
+    color: #505050;
+}
+#chirpFeed {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.chirp{
+    border-radius: 5px;
+    padding: 0 5px 0 5px;
+}
+/*Chirp form on main site*/
+
+form#chirp-form textarea{
+    width: 80%;
+    min-width: 200px;
+    max-width: 400px;
+    height: 5em;
+    border-radius: 5px;
+    max-height: 200px;
 }
 

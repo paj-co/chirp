@@ -21,4 +21,10 @@ public @Data class Chirp {
 
     private LocalDateTime created;
 
+    @PrePersist
+    public void prePersist() {
+        created = LocalDateTime.now();
+    }
+
+
 }

@@ -1,10 +1,11 @@
 package pl.pajco.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.*;
 import pl.pajco.entity.Chirp;
+import pl.pajco.model.CurrentUser;
 import pl.pajco.service.ChirpService;
 
 import java.util.List;
@@ -25,5 +26,10 @@ public class ChirpRestController {
         return chirpService.findAllChirps();
     }
 
+    @RequestMapping(path = "/", method = RequestMethod.POST)
+    @ResponseStatus(value = HttpStatus.OK)
+    public Chirp addChirp(@RequestBody Chirp chirp, @AuthenticationPrincipal CurrentUser currentUser) {
+        return chirpService.addChirp(currentUser, chirp);
+    }
 
 }
