@@ -17,6 +17,7 @@ public @Data class Chirp {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @Column(length = 280)
     private String text;
 
     private LocalDateTime created;

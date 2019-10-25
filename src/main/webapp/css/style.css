@@ -89,13 +89,23 @@ a {
     padding: 0 5px 0 5px;
 }
 /*Chirp form on main site*/
-
 form#chirp-form textarea{
-    width: 80%;
+    width: 90%;
     min-width: 200px;
     max-width: 400px;
-    height: 5em;
+    height: 8em;
     border-radius: 5px;
     max-height: 200px;
+}
+.red-border{
+    border: 3px solid red;
+    background-color: #e1e1e1;
+}
+.form-style{
+    border: 3px solid #e1e1e1;
+    background-color: #e1e1e1;
+}
+.red-counter{
+    color: darkred;
 }
 

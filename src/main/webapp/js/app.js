@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     var chirpFeed = $('#chirpFeed');
     var newChirpText = $('#new-chirp-text');
+    var charCount = $('#char-count');
 
     function getAllChirps() {
         $.ajax({
@@ -47,23 +48,46 @@ $(document).ready(function () {
             text: newChirpText.val(),
             created: null
         };
+        if(newChirpText.val().length <= 280) {
+            $.ajax({
+                // url: "http://localhost:8080/chirp/rest/chirps/",
+                url: "rest/chirps/",
+                type: "POST",
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN' : $("meta[name='_csrf']").attr("content")
+                },
+                data: JSON.stringify(chirp),
+                dataType: "json"
+            }).done(function (result) {
+                newChirpText.val('');
+                charCount.text('0/280');
 
-        $.ajax({
-            // url: "http://localhost:8080/chirp/rest/chirps/",
-            url: "rest/chirps/",
-            type: "POST",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN' : $("meta[name='_csrf']").attr("content")
-            },
-            data: JSON.stringify(chirp),
-            dataType: "json"
-        }).done(function (result) {
-        }).fail(function (xhr, status, err) {
-            alert('There is problem with adding your chirp!');
-        }).always(function (xhr, status) {
-        });
+                chirpFeed.html('');
+                getAllChirps();
+            }).fail(function (xhr, status, err) {
+                alert('There is problem with adding your chirp!');
+            }).always(function (xhr, status) {
+            });
+        } else {
+            alert('Your chirp can only have 280 characters!')
+        }
+    });
+
+    newChirpText.on('keyup', function () {
+        var chirpTextLength = newChirpText.val().length;
+        charCount.text(chirpTextLength + '/280');
+        if(newChirpText.val().length > 280) {
+            newChirpText.addClass('red-border');
+            newChirpText.removeClass('form-style');
+            charCount.addClass('red-counter')
+        } else {
+            newChirpText.removeClass('red-border');
+            newChirpText.addClass('form-style');
+            charCount.removeClass('red-counter')
+        }
+
     });
 
     getAllChirps();

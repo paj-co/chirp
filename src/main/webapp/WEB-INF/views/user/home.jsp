@@ -50,9 +50,13 @@
 
         <div id="form">
             <form id="chirp-form">
-                <textarea id="new-chirp-text" type="text" name="chirp" placeholder=" What's happening?" ></textarea>
+                <textarea id="new-chirp-text" class="form-style" type="text" name="chirp" placeholder=" What's happening?" ></textarea>
                 <input id="new-chirp-submit" type="button" value="Chirp">
+                <div>
+                    <span id="char-count">0/280</span>
+                </div>
             </form>
+            <hr>
         </div>
         <div id="chirpFeed">
 
