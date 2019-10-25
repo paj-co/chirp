@@ -1,0 +1,16 @@
+INSERT INTO chirp.role (id, name) VALUES (1, 'ROLE_USER');
+INSERT INTO chirp.user (id, email, enabled, firstName, lastName, nick, password) VALUES (1, 'tytus@monkey.it', 1, 'Tytus', 'Monkey', 'tytus', '$2a$10$b9qqnmi/iI90CSpaio.2IOtCQ2nmtgNzmwb74vZvQjDrbaooXGwPa');
+INSERT INTO chirp.user (id, email, enabled, firstName, lastName, nick, password) VALUES (2, 'ala@makota.com', 1, 'Ala', 'Makota', 'ala', '$2a$10$yaLQWRDjzmwNPoRKvPrTZOx0hus7SWwAeNSDF8I0z5IeGER0V7qje');
+INSERT INTO chirp.user (id, email, enabled, firstName, lastName, nick, password) VALUES (3, 'papa@smerf.com', 1, 'Papa', 'Smerf', 'papa', '$2a$10$XUSQKlezYZWWawsEmHk5kOgxdT8Avj7YXzbzUNc9qtTUuuB1IgGjC');
+INSERT INTO chirp.user (id, email, enabled, firstName, lastName, nick, password) VALUES (4, 'jan.kowalski@protonmail.com', 1, 'Jan', 'Kowalski', 'janek', '$2a$10$cx.tK1VOU33fT7P3xcGcle0DqB1hA3vEV8kEIpz7zfFE0WSg9/WUS');
+INSERT INTO chirp.user_role (user_id, role_id) VALUES (1, 1);
+INSERT INTO chirp.user_role (user_id, role_id) VALUES (2, 1);
+INSERT INTO chirp.user_role (user_id, role_id) VALUES (3, 1);
+INSERT INTO chirp.user_role (user_id, role_id) VALUES (4, 1);
+INSERT INTO chirp.chirp (id, created, text, user_id) VALUES (1, '2019-10-01 14:55:51.000000', 'Cheesecake jelly tiramisu danish bear claw. Marshmallow candy canes tart. Cake marzipan marzipan candy toffee.', 1);
+INSERT INTO chirp.chirp (id, created, text, user_id) VALUES (2, '2019-10-10 14:56:30.000000', 'I love tart soufflé I love fruitcake I love. Croissant chocolate cake cake jelly-o tart tart I love cheesecake bear claw. ', 1);
+INSERT INTO chirp.chirp (id, created, text, user_id) VALUES (3, '2019-10-02 14:56:08.000000', 'Caramels marzipan I love powder tootsie roll. Chocolate bar halvah apple pie sweet. Dragée biscuit chocolate bar carrot cake lollipop muffin halvah lollipop. ', 2);
+INSERT INTO chirp.chirp (id, created, text, user_id) VALUES (4, '2019-10-13 14:56:35.000000', 'Croissant dragée halvah caramels liquorice I love I love. Macaroon I love jelly beans gummies I love. Brownie muffin caramels.', 2);
+INSERT INTO chirp.chirp (id, created, text, user_id) VALUES (5, '2019-10-04 14:56:15.000000', 'Gummi bears sesame snaps toffee I love. Marshmallow gummies toffee I love chocolate jujubes pastry. Tiramisu cookie I love cupcake caramels.', 3);
+INSERT INTO chirp.chirp (id, created, text, user_id) VALUES (6, '2019-10-17 14:56:40.000000', 'Sweet chocolate lollipop caramels gummi bears I love jelly-o. Oat cake candy gummi bears. Jujubes cake chupa chups brownie I love cotton candy pastry lemon drops cupcake.', 3);
+INSERT INTO chirp.chirp (id, created, text, user_id) VALUES (7, '2019-10-01 14:56:23.000000', 'Topping cake bonbon cheesecake chocolate cake croissant. Sweet roll I love donut candy canes sugar plum. Ice cream sugar plum jelly-o lemon drops cheesecake. Pie cake cookie I love croissant.', 4);
