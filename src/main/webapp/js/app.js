@@ -47,24 +47,24 @@ $(document).ready(function () {
             text: newChirpText.val(),
             created: null
         };
+
         $.ajax({
             // url: "http://localhost:8080/chirp/rest/chirps/",
             url: "rest/chirps/",
             type: "POST",
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN' : $("meta[name='_csrf']").attr("content")
             },
             data: JSON.stringify(chirp),
             dataType: "json"
         }).done(function (result) {
-            alert('It worked!');
         }).fail(function (xhr, status, err) {
-            alert('There is problem with adding your chirp!')
+            alert('There is problem with adding your chirp!');
         }).always(function (xhr, status) {
         });
     });
-
 
     getAllChirps();
 
