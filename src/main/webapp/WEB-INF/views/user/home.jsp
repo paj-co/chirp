@@ -6,8 +6,7 @@
     <title>Chirp | Dashboard</title>
     <link href="<c:url value="/css/style.css" />" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="<c:url value="/js/app.js"/> "></script
-    <sec:csrfMetaTags />
+    <script src="<c:url value="/js/app.js"/> "></script>
     <%--https://docs.spring.io/spring-security/site/docs/5.0.x/reference/html/csrf.html--%>
     <meta name="_csrf" content="${_csrf.token}"/>
 </head>

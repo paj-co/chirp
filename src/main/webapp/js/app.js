@@ -90,6 +90,23 @@ $(document).ready(function () {
 
     });
 
+    function getLoggedUser() {
+        $.ajax({
+            url: "rest/chirps/loggedUser",
+            type: "GET",
+            dataType: "json"
+        }).done(function (user){
+            //TODO How by providing only users nick, the application context is applied
+            var aUser = $('a[data="user"]');
+            aUser.attr('href', user.nick);
+            aUser.eq(0).text('@' + user.nick);
+        }).fail(function (xhr, status, err) {
+        }).always(function (xhr, status) {
+        });
+    }
+
+    getLoggedUser();
+
     getAllChirps();
 
 });

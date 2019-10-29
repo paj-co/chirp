@@ -6,26 +6,28 @@
                     <a href="<c:url value="/" />">Chirp</a>
                 </span>
 
-        <sec:authorize access="isAuthenticated()" >
-                    <span class="nick">
-                        @<sec:authentication property="principal.user.nick" />
-                    </span>
-        </sec:authorize>
+            <span class="nick">
+                <a data="user" href="/"></a>
+            </span>
 
-        <div id="left-panel-menu">
-            <ul>
-                <li>Home</li>
-                <li>Profile</li>
-                <li>Messages</li>
-                <li>Settings</li>
-                <li>
-                    <form action="<c:url value="/logout" />" method="post">
-                        <input class="logoutButton" type="submit" value="Logout" />
-                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                    </form>
-                </li>
-            </ul>
-        </div>
+            <div id="left-panel-menu">
+                <ul>
+                    <li>
+                        <a href="<c:url value="/" />">Home</a>
+                    </li>
+                    <li>
+                        <a data="user" href="/">Profile</a>
+                    </li>
+                    <li>Messages</li>
+                    <li>Settings</li>
+                    <li>
+                        <form action="<c:url value="/logout" />" method="post">
+                            <input class="logoutButton" type="submit" value="Logout" />
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                        </form>
+                    </li>
+                </ul>
+            </div>
 
     </div>
 </div>
