@@ -1,0 +1,31 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<div id="left-panel">
+    <div id="left-panel-inside">
+
+                <span id="chirp-logo">
+                    <a href="<c:url value="/" />">Chirp</a>
+                </span>
+
+        <sec:authorize access="isAuthenticated()" >
+                    <span class="nick">
+                        @<sec:authentication property="principal.user.nick" />
+                    </span>
+        </sec:authorize>
+
+        <div id="left-panel-menu">
+            <ul>
+                <li>Home</li>
+                <li>Profile</li>
+                <li>Messages</li>
+                <li>Settings</li>
+                <li>
+                    <form action="<c:url value="/logout" />" method="post">
+                        <input class="logoutButton" type="submit" value="Logout" />
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                    </form>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>

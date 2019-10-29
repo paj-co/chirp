@@ -8,7 +8,7 @@
 }
 #left-panel{
     width: 20%;
-    background-color: orange;
+    background-color: #ffb843;
     min-width: 100px;
 }
 .nick{
@@ -50,7 +50,7 @@
 /*--- Right panel on main site ---*/
 #right-panel{
     width: 20%;
-    background-color: lightgray;
+    background-color: #ffb843;
     min-width: 100px;
 }
 #right-panel-inside{

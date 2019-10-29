@@ -15,37 +15,8 @@
 
 <div class="flex">
 
-    <div id="left-panel">
-        <div id="left-panel-inside">
-
-                <span id="chirp-logo">
-                    <a href="<c:url value="/" />">Chirp</a>
-                </span>
-
-            <sec:authorize access="isAuthenticated()" >
-                    <span class="nick">
-                        @<sec:authentication property="principal.user.nick" />
-                    </span>
-            </sec:authorize>
-
-            <div id="left-panel-menu">
-                <ul>
-                    <li>Home</li>
-                    <li>Profile</li>
-                    <li>Messages</li>
-                    <li>Settings</li>
-                    <li>
-                        <form action="<c:url value="/logout" />" method="post">
-                            <input class="logoutButton" type="submit" value="Logout" />
-                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-                        </form>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-
+    <%@include file="leftPanel.jspf"%>
+    
     <div id="main-panel">
 
         <div id="form">
@@ -65,11 +36,8 @@
         </div>
     </div>
 
-    <div id="right-panel">
-        <div id="right-panel-inside">
-            <p>Right Sidebar</p>
-        </div>
-    </div>
+    <%@include file="rightPanel.jspf"%>
+
 </div>
 
 </body>
