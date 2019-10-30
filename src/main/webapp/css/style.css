@@ -76,6 +76,9 @@ a {
 .chirpTitleGray{
     color: #505050;
 }
+.chirpTitleGray a {
+    color: #505050;
+}
 #chirpFeed {
     margin-left: 15px;
     margin-right: 15px;

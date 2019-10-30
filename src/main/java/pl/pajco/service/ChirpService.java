@@ -33,4 +33,8 @@ public class ChirpService {
         return chirpRepository.save(chirp);
     }
 
+    public List<Chirp> findAllUserChirpsByNick(String nick) {
+        return chirpRepository.findChirpsByUserNick(nick);
+    }
+
 }

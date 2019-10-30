@@ -39,6 +39,13 @@ public class ChirpRestController {
         return currentUser.getUser();
     }
 
+    @GetMapping("/{userNick}")
+    public List<Chirp> getAllUserChirps(@PathVariable String userNick) {
+        return chirpService.findAllUserChirpsByNick(userNick);
+    }
+
+
+
 
 
 }
