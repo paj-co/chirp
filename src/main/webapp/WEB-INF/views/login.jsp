@@ -15,7 +15,7 @@
 
     <div class="inlineBlock" style=" margin-left: 10px">
         <h1 style="color: darkblue;">
-            <a style="text-decoration: none" href="<c:url value="/" />">Chirp</a>
+            <a style="text-decoration: none" href="<c:url value="/home" />">Chirp</a>
         </h1>
         <h3>Welcome to our site!</h3>
         <h3>Wanna see what is going on?</h3>

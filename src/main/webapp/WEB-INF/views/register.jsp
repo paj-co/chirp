@@ -22,7 +22,7 @@
 
     <div class="inlineBlock" style="vertical-align: top; margin-left: 10px">
         <h1 style="color: darkblue;">
-            <a href="<c:url value="/"/>">Chirp</a>
+            <a href="<c:url value="/home"/>">Chirp</a>
         </h1>
         <h4>Register and join our social network!</h4>
     </div>

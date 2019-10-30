@@ -3,7 +3,7 @@
     <div id="left-panel-inside">
 
                 <span id="chirp-logo">
-                    <a href="<c:url value="/" />">Chirp</a>
+                    <a href="<c:url value="/home" />">Chirp</a>
                 </span>
 
             <span class="nick">
@@ -13,7 +13,7 @@
             <div id="left-panel-menu">
                 <ul>
                     <li>
-                        <a href="<c:url value="/" />">Home</a>
+                        <a href="<c:url value="/home" />">Home</a>
                     </li>
                     <li>
                         <a data="user" href="/">Profile</a>

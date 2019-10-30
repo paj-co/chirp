@@ -15,10 +15,6 @@
     font-weight: bold;
     font-style: italic;
 }
-.nick:hover{
-    color: dodgerblue;
-    cursor: pointer;
-}
 #left-panel-menu{
     margin: 20px;
 }
@@ -56,13 +52,18 @@
 #right-panel-inside{
     margin: 10px 0 0 10px;
 }
-#chirp-logo{
+#chirp-logo a{
     color: darkblue;
     font-size: 30px;
     font-weight: bold;
 }
+#chirp-logo a:hover{
+    color: dodgerblue;
+    cursor: pointer;
+}
 a {
     text-decoration: none;
+    color: black;
 }
 /*--- Main panel on main site ---*/
 #main-panel{
@@ -73,13 +74,16 @@ a {
 .chirpTitle{
     font-weight: bold;
 }
+.chirpTitle a{
+    color: black;
+}
 .chirpTitleGray{
     color: #505050;
 }
 .chirpTitleGray a {
     color: #505050;
 }
-#chirpFeed {
+#chirpFeed, #userChirpFeed {
     margin-left: 15px;
     margin-right: 15px;
 }
@@ -89,7 +93,11 @@ a {
 }
 .chirp{
     border-radius: 5px;
-    padding: 0 5px 0 5px;
+    padding: 2px 5px 2px 5px;
+}
+div.chirp:hover{
+    background-color: #dddddd;
+    color: black;
 }
 /*Chirp form on main site*/
 form#chirp-form textarea{
@@ -110,5 +118,9 @@ form#chirp-form textarea{
 }
 .red-counter{
     color: darkred;
+}
+a:hover {
+    color: dodgerblue;
+    cursor: pointer;
 }
 

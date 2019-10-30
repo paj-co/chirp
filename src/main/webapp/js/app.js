@@ -76,6 +76,7 @@ $(document).ready(function () {
 function addChirpsToPage(pageElement, result) {
     result.forEach(function (el) {
         var chirpDiv = $('<div>', {class: 'chirp'});
+        var chirpA = $('<a href="' + el.user.nick + '/' + el.id +'"></a>')
         var chirpTitleP = $('<p>');
         var chirpContentP = $('<p>');
 
@@ -83,7 +84,7 @@ function addChirpsToPage(pageElement, result) {
         var chirpTitleSpanGrayNick = $('<span>', {class: 'chirpTitleGray'});
         var chirpTitleSpanGrayCreated = $('<span>', {class: 'chirpTitleGray'});
 
-        chirpTitleSpan.text(el.user.firstName + ' ' + el.user.lastName);
+        chirpTitleSpan.html('<a href="' + el.user.nick + '">' + el.user.firstName + ' ' + el.user.lastName + '</a>');
         chirpTitleSpanGrayNick.html('<a href="' + el.user.nick + '">' + ' @' + el.user.nick + '</a>');
         chirpTitleSpanGrayCreated.text(' | ' + el.created.hour + ':' + el.created.minute + ' | '
             + el.created.dayOfMonth + '-' + el.created.monthValue + '-' + el.created.year);
@@ -96,8 +97,10 @@ function addChirpsToPage(pageElement, result) {
 
         chirpDiv.append(chirpTitleP);
         chirpDiv.append(chirpContentP);
+        chirpA.append(chirpDiv);
 
-        pageElement.append(chirpDiv);
+        pageElement.append(chirpA);
+
     });
 }
 

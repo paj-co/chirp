@@ -17,7 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/login", "/register").permitAll()
                 //TODO how to prevent user for accessing straight rest api address
-                .antMatchers("/", "/*", "/rest/chirps/**").authenticated()
+                .antMatchers("/", "/home" , "/*", "/rest/chirps/**").authenticated()
                 .and().formLogin().loginPage("/login")
                 .and().logout().logoutSuccessUrl("/login")
                 .and().exceptionHandling().accessDeniedPage("/403");
