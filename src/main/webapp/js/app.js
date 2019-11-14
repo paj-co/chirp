@@ -1,91 +1,32 @@
-$(document).ready(function () {
-
-    var chirpFeed = $('#chirpFeed');
-    var newChirpText = $('#new-chirp-text');
-    var charCount = $('#char-count');
-
-
-    function getAllChirps() {
-        $.ajax({
-            // url: "http://localhost:8080/chirp/rest/chirps/",
-            url: "rest/chirps/",
-            type: "GET",
-            dataType: "json"
-        }).done(function (result) {
-            addChirpsToPage(chirpFeed, result);
-        }).fail(function (xhr, status, err) {
-            alert('Problem loading chirps')
-        }).always(function (xhr, status) {
-        });
-    }
-
-    $('#new-chirp-submit').on('click', function () {
-        var chirp = {
-            user: null,
-            text: newChirpText.val(),
-            created: null
-        };
-        if(newChirpText.val().length <= 280) {
-            $.ajax({
-                // url: "http://localhost:8080/chirp/rest/chirps/",
-                url: "rest/chirps/",
-                type: "POST",
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN' : $("meta[name='_csrf']").attr("content")
-                },
-                data: JSON.stringify(chirp),
-                dataType: "json"
-            }).done(function (result) {
-                newChirpText.val('');
-                charCount.text('0/280');
-
-                chirpFeed.html('');
-                getAllChirps();
-            }).fail(function (xhr, status, err) {
-                alert('There is problem with adding your chirp!');
-            }).always(function (xhr, status) {
-            });
-        } else {
-            alert('Your chirp can only have 280 characters!')
-        }
+//universal
+function getLoggedUser() {
+    $.ajax({
+        url: "/chirp/rest/chirps/loggedUser",
+        type: "GET",
+        dataType: "json"
+    }).done(function (user){
+        //TODO How by providing only users nick, the application context is applied
+        let aUser = $('a[data="user"]');
+        aUser.attr('href', '/chirp/' + user.nick);
+        aUser.eq(0).text('@' + user.nick);
+    }).fail(function (xhr, status, err) {
+    }).always(function (xhr, status) {
     });
+}
 
-    newChirpText.on('keyup', function () {
-        var chirpTextLength = newChirpText.val().length;
-        charCount.text(chirpTextLength + '/280');
-        if(newChirpText.val().length > 280) {
-            newChirpText.addClass('red-border');
-            newChirpText.removeClass('form-style');
-            charCount.addClass('red-counter')
-        } else {
-            newChirpText.removeClass('red-border');
-            newChirpText.addClass('form-style');
-            charCount.removeClass('red-counter')
-        }
-
-    });
-
-    getLoggedUser();
-
-    getAllChirps();
-
-});
-
-function addChirpsToPage(pageElement, result) {
+function addChirpsToPage(pageElement, result, wrapInLink) {
     result.forEach(function (el) {
-        var chirpDiv = $('<div>', {class: 'chirp'});
-        var chirpA = $('<a href="' + el.user.nick + '/' + el.id +'"></a>')
-        var chirpTitleP = $('<p>');
-        var chirpContentP = $('<p>');
+        let chirpDiv = $('<div>', {class: 'chirp'});
+        let chirpA = $('<a href="one/' + el.user.nick + '/' + el.id +'"></a>')
+        let chirpTitleP = $('<p>');
+        let chirpContentP = $('<p>');
 
-        var chirpTitleSpan = $('<span>', {class: 'chirpTitle'});
-        var chirpTitleSpanGrayNick = $('<span>', {class: 'chirpTitleGray'});
-        var chirpTitleSpanGrayCreated = $('<span>', {class: 'chirpTitleGray'});
+        let chirpTitleSpan = $('<span>', {class: 'chirpTitle'});
+        let chirpTitleSpanGrayNick = $('<span>', {class: 'chirpTitleGray'});
+        let chirpTitleSpanGrayCreated = $('<span>', {class: 'chirpTitleGray'});
 
-        chirpTitleSpan.html('<a href="' + el.user.nick + '">' + el.user.firstName + ' ' + el.user.lastName + '</a>');
-        chirpTitleSpanGrayNick.html('<a href="' + el.user.nick + '">' + ' @' + el.user.nick + '</a>');
+        chirpTitleSpan.html('<a href="/chirp/' + el.user.nick + '">' + el.user.firstName + ' ' + el.user.lastName + '</a>');
+        chirpTitleSpanGrayNick.html('<a href="/chirp/' + el.user.nick + '">' + ' @' + el.user.nick + '</a>');
         chirpTitleSpanGrayCreated.text(' | ' + el.created.hour + ':' + el.created.minute + ' | '
             + el.created.dayOfMonth + '-' + el.created.monthValue + '-' + el.created.year);
 
@@ -99,22 +40,17 @@ function addChirpsToPage(pageElement, result) {
         chirpDiv.append(chirpContentP);
         chirpA.append(chirpDiv);
 
-        pageElement.append(chirpA);
+        if(wrapInLink === true) {
+            pageElement.append(chirpA);
+        } else {
+            chirpDiv.removeClass('chirp');
+            chirpDiv.addClass('singleChirp');
+            pageElement.append(chirpDiv)
+        }
 
     });
 }
 
-function getLoggedUser() {
-    $.ajax({
-        url: "rest/chirps/loggedUser",
-        type: "GET",
-        dataType: "json"
-    }).done(function (user){
-        //TODO How by providing only users nick, the application context is applied
-        var aUser = $('a[data="user"]');
-        aUser.attr('href', user.nick);
-        aUser.eq(0).text('@' + user.nick);
-    }).fail(function (xhr, status, err) {
-    }).always(function (xhr, status) {
-    });
+function addPageTitleWithUserNickFromUrl(nick) {
+    $('title').text('@' + nick + ' | Chirp')
 }

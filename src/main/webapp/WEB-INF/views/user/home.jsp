@@ -4,9 +4,10 @@
 <html>
 <head>
     <title>Chirp | Dashboard</title>
-    <link href="<c:url value="/css/style.css" />" rel="stylesheet" />
+    <link href="<c:url value="/css/style.css" />" rel="stylesheet" type="text/css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="<c:url value="/js/app.js"/> "></script>
+    <script src="<c:url value="/js/app.js"/> " rel="script" type="text/javascript"></script>
+    <script src="<c:url value="/js/home.js"/> " rel="script" type="application/javascript"></script>
     <%--https://docs.spring.io/spring-security/site/docs/5.0.x/reference/html/csrf.html--%>
     <meta name="_csrf" content="${_csrf.token}"/>
 </head>

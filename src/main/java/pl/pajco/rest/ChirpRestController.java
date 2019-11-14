@@ -9,6 +9,7 @@ import pl.pajco.entity.User;
 import pl.pajco.model.CurrentUser;
 import pl.pajco.service.ChirpService;
 
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -44,8 +45,9 @@ public class ChirpRestController {
         return chirpService.findAllUserChirpsByNick(userNick);
     }
 
-
-
-
+    @GetMapping("/{userNick}/{chirpId}")
+    public List<Chirp> getOneUserChirp(@PathVariable String userNick, @PathVariable long chirpId) {
+        return Arrays.asList(chirpService.findChirpByIdAndNick(chirpId, userNick));
+    }
 
 }

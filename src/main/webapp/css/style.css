@@ -83,7 +83,7 @@ a {
 .chirpTitleGray a {
     color: #505050;
 }
-#chirpFeed, #userChirpFeed {
+#chirpFeed, #userChirpFeed, #singleChirp {
     margin-left: 15px;
     margin-right: 15px;
 }
@@ -91,7 +91,7 @@ a {
     margin-left: 15px;
     margin-right: 15px;
 }
-.chirp{
+.chirp, .singleChirp{
     border-radius: 5px;
     padding: 2px 5px 2px 5px;
 }

@@ -37,4 +37,14 @@ public class ChirpService {
         return chirpRepository.findChirpsByUserNick(nick);
     }
 
+    public Chirp findChirpByIdAndNick(long id, String nick) {
+        Chirp singleChirp = chirpRepository.findById(id).orElse(null);
+        if(singleChirp != null && singleChirp.getUser() != null) {
+            if(singleChirp.getUser().getNick().equals(nick)){
+                return singleChirp;
+            }
+        }
+        return null;
+    }
+
 }

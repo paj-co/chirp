@@ -21,4 +21,11 @@ public class HomeController {
         return "user/userProfile";
     }
 
+//    TODO this address is causing an error with mime types ??
+//    @GetMapping("/{userNick}/{chirpId}")
+    @GetMapping("/one/{userNick}/{chirpId}")
+    public String singleChirp(@PathVariable String userNick, @PathVariable long chirpId) {
+        return "user/singleChirp";
+    }
+
 }
