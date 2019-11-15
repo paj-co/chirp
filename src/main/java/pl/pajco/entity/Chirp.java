@@ -1,9 +1,11 @@
 package pl.pajco.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "chirp")
@@ -21,6 +23,10 @@ public @Data class Chirp {
     private String text;
 
     private LocalDateTime created;
+
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "chirp")
+    private List<Comment> comments;
 
     @PrePersist
     public void prePersist() {

@@ -14,3 +14,10 @@ INSERT INTO chirp.chirp (id, created, text, user_id) VALUES (4, '2019-10-13 14:5
 INSERT INTO chirp.chirp (id, created, text, user_id) VALUES (5, '2019-10-04 14:56:15.000000', 'Gummi bears sesame snaps toffee I love. Marshmallow gummies toffee I love chocolate jujubes pastry. Tiramisu cookie I love cupcake caramels.', 3);
 INSERT INTO chirp.chirp (id, created, text, user_id) VALUES (6, '2019-10-17 14:56:40.000000', 'Sweet chocolate lollipop caramels gummi bears I love jelly-o. Oat cake candy gummi bears. Jujubes cake chupa chups brownie I love cotton candy pastry lemon drops cupcake.', 3);
 INSERT INTO chirp.chirp (id, created, text, user_id) VALUES (7, '2019-10-01 14:56:23.000000', 'Topping cake bonbon cheesecake chocolate cake croissant. Sweet roll I love donut candy canes sugar plum. Ice cream sugar plum jelly-o lemon drops cheesecake. Pie cake cookie I love croissant.', 4);
+
+INSERT INTO chirp.comment (id, commentText, created, chirp_id, user_id) VALUES (7, 'Wow! LOL! Comments at least!', '2019-11-14 15:34:45.000000', 7, 1);
+INSERT INTO chirp.comment (id, commentText, created, chirp_id, user_id) VALUES (8, 'Super!', '2019-11-14 15:34:48.000000', 7, 2);
+INSERT INTO chirp.comment (id, commentText, created, chirp_id, user_id) VALUES (9, 'This is what I was waiting for!', '2019-11-14 15:34:50.000000', 7, 1);
+INSERT INTO chirp.comment (id, commentText, created, chirp_id, user_id) VALUES (10, 'I <3 comments!', '2019-11-14 15:34:51.000000', 6, 3);
+INSERT INTO chirp.comment (id, commentText, created, chirp_id, user_id) VALUES (11, 'That is what I was talking about!', '2019-11-14 15:34:53.000000', 6, 4);
+INSERT INTO chirp.comment (id, commentText, created, chirp_id, user_id) VALUES (12, 'Yeaaah!', '2019-11-14 15:34:54.000000', 5, 1);
