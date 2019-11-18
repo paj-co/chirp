@@ -42,5 +42,12 @@ public @Data class User {
     @OneToMany(mappedBy = "user")
     private List<Chirp> chirps;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "sender")
+    private List<Message> messagesSent;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "receiver")
+    private List<Message> messagesReceived;
 
 }
