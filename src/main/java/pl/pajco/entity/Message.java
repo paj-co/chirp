@@ -29,9 +29,14 @@ public @Data class Message {
 
     private LocalDateTime created;
 
+    @ManyToOne
+    @JoinColumn(name = "message_thread")
+    private MessageThread messageThread;
+
     @PrePersist
     private void prePersistCreated() {
         created = LocalDateTime.now();
+        seen = 0;
     }
 
 
